@@ -1,0 +1,41 @@
+import random
+import time
+from collections import deque
+import numpy as np
+import array
+
+numbers = 10000000
+
+list_ = list()
+t_list = 0
+time1 = time.time()
+for i in range(numbers):
+    list_.append(i)
+time2 = time.time()
+t_list = time2 - time1
+print(f"Время list: {t_list}")
+
+dq = deque()
+t_deque = 0
+time1 = time.time()
+for i in range(numbers):
+    dq.append(i)
+time2 = time.time()
+t_deque = time2 - time1
+print(f"Время deque: {t_deque}")
+
+arr = array.array('i', [0])
+t_array = 0
+time1 = time.time()
+for i in range(numbers):
+    arr.append(i)
+time2 = time.time()
+t_array = time2 - time1
+print(f"Время array.array: {t_array}")
+
+t_array = 0
+time1 = time.time()
+np_arr = np.arange(numbers)
+time2 = time.time()
+t_array = time2 - time1
+print(f"Время np.arrange: {t_array}")
